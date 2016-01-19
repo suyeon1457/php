@@ -1,6 +1,15 @@
 <?php
 session_start();
 header("Content-Type: text/html; charset=UTF-8");
+
+include('db.php');
+$link = mysql_connect($db['host'], $db['user'] , $db['pw']);
+if (!$link) {
+    die('Could not connect: ' . mysql_error());
+}
+echo 'Connected successfully';
+mysql_close($link);
+
 ?>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
